@@ -9,3 +9,8 @@ test/dummy/.sass-cache
 *.gem
 .DS_Store
 coverage/
+vendor/bundle
+.rbenv-*
+.ruby-*
+.rvmrc
+.idea/
