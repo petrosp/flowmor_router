@@ -126,7 +126,7 @@ module FlowmorRouter
       @title_field_attribute = :title
 
       previous = @@router_classes.detect{|rc| rc.model.name == @model.name}
-      raise DuplicateRouterActors.new("duplicate actors registered!") if previous.try(:route_route) == actor
+      raise DuplicateRouterActors.new("duplicate actors registered!") if previous.try(:route_base_name) == actor
       @no_conflict = !!previous
       
       @controller_action = options[:controller_action] || "#{actor}#show" 
