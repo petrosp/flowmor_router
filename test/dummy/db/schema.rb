@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20140818105255) do
 
-  create_table "articles", force: true do |t|
+  create_table "articles", force: :cascade do |t|
     t.string   "title"
     t.string   "name"
     t.datetime "created_at"
@@ -21,21 +21,21 @@ ActiveRecord::Schema.define(version: 20140818105255) do
     t.boolean  "published"
   end
 
-  create_table "news_articles", force: true do |t|
+  create_table "news_articles", force: :cascade do |t|
     t.string   "caption"
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "post_categories", force: true do |t|
+  create_table "post_categories", force: :cascade do |t|
     t.string   "title"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "posts", force: true do |t|
+  create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.integer  "category_id"
     t.string   "name"
