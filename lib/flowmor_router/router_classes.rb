@@ -95,7 +95,7 @@ module FlowmorRouter
     
     def self.register actor, model, options
       router_class = RouterClasses.new(actor, model, options)
-      @@router_classes << router_class
+      @@router_classes << router_class if @@router_classes.detect{|rc| rc.model.name == model.name}.nil?
       return router_class
     end
     
