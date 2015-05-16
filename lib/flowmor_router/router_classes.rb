@@ -100,7 +100,7 @@ module FlowmorRouter
     end
     
     def self.unregister model
-      @@router_classes.select{ |s| s.model == model }.each do |item|
+      @@router_classes.select{ |s| s.model.name == model.name }.each do |item|
         @@router_classes.delete(item)
       end
     end
@@ -125,7 +125,7 @@ module FlowmorRouter
       @name_field_attribute = :name
       @title_field_attribute = :title
 
-      previous = @@router_classes.detect{|rc| rc.model == @model}
+      previous = @@router_classes.detect{|rc| rc.model.name == @model.name}
       raise DuplicateRouterActors.new("duplicate actors registered!") if previous.try(:route_route) == actor
       @no_conflict = !!previous
       
